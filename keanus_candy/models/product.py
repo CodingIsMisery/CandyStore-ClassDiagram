@@ -46,3 +46,10 @@ class Catalog:
     def search(self, keyword: str) -> List[Candy]:
         """Search for candies by keyword in the name."""
         return [c for c in self.candies if keyword.lower() in c.name.lower()]
+
+    def find_by_id(self, product_id: int) -> Candy | None:
+            """Find a single candy by its product_id."""
+            for candy in self.candies:
+                if candy.product_id == product_id:
+                    return candy
+            return None  # Return None if no candy is found
