@@ -34,3 +34,15 @@ class PayPal(PaymentMethod):
         """Process a PayPal payment."""
         print(f"Processing PayPal payment of ${amount:.2f} from {self.email}...")
         return True
+
+class ApplePay(PaymentMethod):
+    """Implements Apple Pay payment."""
+    
+    def __init__(self, device_account_number: str):
+        super().__init__("Apple Pay")
+        self.device_account_number = device_account_number
+
+    def process_payment(self, amount: float) -> bool:
+        """Process an Apple Pay payment."""
+        print(f"Processing Apple Pay payment of ${amount:.2f} using device account {self.device_account_number[-4:]}...")
+        return True
